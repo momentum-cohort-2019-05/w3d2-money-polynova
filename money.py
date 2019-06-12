@@ -15,13 +15,18 @@ class Currency:
         - symbol - optional symbol used to designate currency
         - digits -- number of significant digits used
         """
-        pass
+        # pass
+        self.name = name 
+        self.code = name
+        self.symbol = name 
+        self.digits = name
 
     def __str__(self):
         """
         Should return the currency code, or code with symbol in parentheses.
         """
         pass
+        return self.code
 
     def __eq__(self, other):
         """
@@ -43,7 +48,12 @@ class Money:
         - amount -- quantity of currency
         - currency -- type of currency
         """
-        pass
+        # pass
+        self.amount = amount
+        self.currency = currency
+
+
+    
 
     def __str__(self):
         """
@@ -70,23 +80,35 @@ class Money:
         Add two money objects of the same currency. If they have different
         currencies, raise a DifferentCurrencyError.
         """
-        pass
+        # pass
+        if self.currency == other.currency:
+            return Money(self.amount + other.amount , self.currency)
+        else:
+            raise DifferentCurrencyError
 
     def sub(self, other):
         """
         Subtract two money objects of the same currency. If they have different
         currencies, raise a DifferentCurrencyError.
         """
-        pass
+        # pass
+        if self.currency == other.currency:
+            return Money(self.amount - other.currency, self.currency)
+        else:
+            raise DifferentCurrencyError
 
     def mul(self, multiplier):
         """
         Multiply a money object by a number to get a new money object.
         """
-        pass
+        #pass
+        if self.currency == other.currency:
+            return Money(self.amount * multiplier, self.currency)
+            
 
     def div(self, divisor):
         """
         Divide a money object by a number to get a new money object.
         """
-        pass
+        # pass
+        return Money(self.amount / divisor, self.currency)
